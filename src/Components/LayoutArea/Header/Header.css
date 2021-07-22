@@ -1,0 +1,17 @@
+.Header{
+  height: 10%
+
+}
+
+
+.Header>button{
+
+left: 10px;
+width: 60px;
+height: 30px;
+transition-duration: 0.4s;
+border: 1px solid black
+}
+
+
+
