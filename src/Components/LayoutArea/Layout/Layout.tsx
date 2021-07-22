@@ -14,20 +14,20 @@ function Layout():JSX.Element{ //JSX.Element = The component UI
     return (
         <div className="Layout">
             <BrowserRouter>
-            <header>
-                <Header/>  
-            </header>
-            <aside>
-                <AsideMenu/>
-            </aside>
-            <main className="container">
-            <Routing/>
-            {/* <CompaniesTable/>
-            <CustomerTable/> */}
-            </main>
-            <footer>
-               <Copyright/>
-            </footer>
+                {/*<header>*/}
+                <Header/>
+                {/*</header>*/}
+                <aside>
+                    <AsideMenu/>
+                </aside>
+                <main className="container">
+                <Routing/>
+                {/* <CompaniesTable/>
+                <CustomerTable/> */}
+                </main>
+                <footer>
+                   <Copyright/>
+                </footer>
             </BrowserRouter>
         </div>
     );

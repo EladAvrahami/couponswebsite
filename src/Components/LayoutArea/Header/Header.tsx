@@ -1,5 +1,7 @@
 import { NavLink, useHistory } from "react-router-dom";
-import "./Header"
+import "./Header.css";
+import {useState} from "react";
+import store from "../../../Redux/Store";
 
 function Header():JSX.Element{
     var history = useHistory();
@@ -7,14 +9,32 @@ function Header():JSX.Element{
         history.push("/Login");
     }
 
+    // const [clientType] = useState(store.getState().authState.user.clientType) //taken from Aside.tsx line 10
+    // const [clientType] = useState(localStorage.getItem("user")) // maybe you can use just this instead?
+    const [clientType] = useState("admin") //example
+
     return(
-        <div className="Header container">
-            <div><button onClick={Login}>Login</button></div>
-          header broooo <br />
-         
-        
+        <div className="Header">
+            <button className="loginButton" onClick={Login}>Login</button>
+            {clientType === 'admin' && <div>
+                <NavLink className="navLink" exact to="/GetCustomerCoupons/" >Get customer coupons</NavLink>
+                <NavLink className="navLink" exact to="/GetCompanyCoupons/" >Get company coupons</NavLink>
+                <NavLink className="navLink" exact to="/CustomersTable" >Manage customers</NavLink>
+                <NavLink className="navLink" exact to="/CompaniesTable" >Manage companies</NavLink>
+            </div>}
+            {clientType === 'company' && <div>
+                <NavLink className="navLink" exact to="/GetCompanyCouponsByMaxPrice/" >Coupons by max-price</NavLink>
+                <NavLink className="navLink" exact to="/GetCompanyDetails">Company details</NavLink>
+                <NavLink className="navLink" exact to="/SingleCompanyTable">Coupons management</NavLink>
+            </div>}
+            {clientType === 'customer' && <div>
+                <NavLink className="navLink" exact to="/CouponPurchase" >Purchase coupons</NavLink>
+                <NavLink className="navLink" exact to="/MyPurchasedCouponsByMaxPrice/" >My coupons by max-price</NavLink>
+                <NavLink className="navLink" exact to="/GetCustomerDetails" >My details</NavLink>
+                <NavLink className="navLink" exact to="/SingleCustomerTable/" >My coupons</NavLink>
+            </div>}
         </div>
-    )
+    );
 }
 
 export default Header;
