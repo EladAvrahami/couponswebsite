@@ -16,7 +16,7 @@ html,body,#root{
   outline: none;
   /* מבטל לכל הדפדפנים את הבורדר האוטומטי כמו למשל בכפתור האינפוט בחיפוש*/
 }
-
+/**/
 .Box{
   display: inline-block;
   text-align: left;
