@@ -17,9 +17,6 @@ function Layout():JSX.Element{ //JSX.Element = The component UI
                 {/*<header>*/}
                 <Header/>
                 {/*</header>*/}
-                <aside>
-                    <AsideMenu/>
-                </aside>
                 <main className="container">
                 <Routing/>
                 {/* <CompaniesTable/>
