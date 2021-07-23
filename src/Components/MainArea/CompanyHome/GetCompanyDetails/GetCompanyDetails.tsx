@@ -22,12 +22,14 @@ class GetCompanyDetails extends Component<{}, GetCompanyDetailsState> {
         return (
             <div className="GetCompanyDetails">               
                 <div className="Box GetCompanyDetails">   
-                                <h3>Company details:</h3>                                
+                                <h3>My company details:</h3>                                
                    COMPANY NAME: {this.state.myCompany.name} <br/>
                    ID: {this.state.myCompany.id} <br/>
                    EMAIL: {this.state.myCompany.email} <br/>
                    PASSWORD: {this.state.myCompany.password} <br/>
                 </div>
+                <h3>* If you forgot your password, or wish to update it -<br/>
+                 please contact the site admin at: admin@admin.com</h3>
             </div>
         );
     }

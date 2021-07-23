@@ -28,8 +28,10 @@ class GetCustomerDetails extends Component<{}, GetCustomerDetailsState> {
                    FIRST NAME: {this.state.myCustomer.firstName} <br/>
                    LAST NAME: {this.state.myCustomer.lastName} <br/>
                    EMAIL: {this.state.myCustomer.email} <br/>
-                   PASSWORD: {this.state.myCustomer.password} <br/>
+                    
                 </div>
+                <h3>* If you forgot your password, or wish to update it -<br/>
+                 please contact the site admin at: admin@admin.com</h3>
             </div>
         );
     }
