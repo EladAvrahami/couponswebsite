@@ -1,48 +1,51 @@
 .Layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     height: 100%;
-    width: 100%;
-    box-sizing: border-box; /* fix css size bug/feature*/
+    width: 90%;
+
+    margin: 0 auto;
+    background-color: whitesmoke;
+    border: rebeccapurple 5px dashed;
+    /*box-sizing: border-box; !* fix css size bug/feature*!*/
    /* display: grid;
     grid-template-rows: 15% 80% 5%;
     grid-template-columns: repeat(6,1fr); /* fr - fraction*/
 }
 
-.Layout > header{
-   
-   height: 10%;
-    min-height: 100px;/*מיני הייט כדי שאם אהפוך את האתר לריספונסיבי הוא יימתח ביחד עם הדיבים שבתוכו*/
-    background-color: aqua;
-    
+/*.Layout > header{*/
+/*   */
+/*   height: 10%;*/
+/*    min-height: 100px;!*מיני הייט כדי שאם אהפוך את האתר לריספונסיבי הוא יימתח ביחד עם הדיבים שבתוכו*!*/
+/*    background-color: aqua;*/
+/*    */
+/*}*/
+
+.Layout > .Header{
+    height: 10% ;
+    width: 100%;
 }
-
-
 
 .Layout >aside{
     height: 7% ;
+    width: 100%;
     background-color: silver;
 }
 
 .Layout > main{
-    /* grid-column: span 6;*/
     height: 76%;
+    width: 100%;
     background-color:whitesmoke;
 }
 
 .Layout > footer{
     height: 4% ;
+    width: 100%;
     background-color:chocolate;
-
-
 }
 
 /*.Layout , .Layout > * {
     border: 1px solid black;
 }*/
-
-.Layout {
-    height: 100%;
-    width: 90%;
-    margin: 0 auto;
-    background-color: whitesmoke;
-    border: rebeccapurple 5px dashed;
-}

@@ -1,17 +1,46 @@
 .Header{
-  height: 10%
 
+  display: flex;
+  background-color: aqua;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-
-.Header>button{
-
-left: 10px;
-width: 60px;
-height: 30px;
-transition-duration: 0.4s;
-border: 1px solid black
+.Header > .loginButton {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
+
+.Header > div {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.navLink {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  background-color: green;
+}
+
+/*.Header{*/
+/*  height: 10%*/
+/*}*/
+
+/*.Header > button {*/
+/*  left: 10px;*/
+/*  width: 60px;*/
+/*  height: 30px;*/
+/*  transition-duration: 0.4s;*/
+/*  border: 1px solid black*/
+/*}*/
 
 
 

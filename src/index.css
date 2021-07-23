@@ -27,14 +27,14 @@ html,body,#root{
   box-shadow: 5px 5px 10px;
 }
 
-header{
-  min-height: 100px;/*מיני הייט כדי שאם אהפוך את האתר לריספונסיבי הוא יימתח ביחד עם הדיבים שבתוכו*/
-  background-color: white;
+/*header{*/
+/*  min-height: 100px;!*מיני הייט כדי שאם אהפוך את האתר לריספונסיבי הוא יימתח ביחד עם הדיבים שבתוכו*!*/
+/*  background-color: white;*/
 
-}
-header .Header {
-  
-  width: 100%;}/כדי שכשהדיב לוגו יתחיל לקטון התמונה תהייה קטנה בהתאם/
+/*}*/
+/*header .Header {*/
+
+/*  width: 100%;}/כדי שכשהדיב לוגו יתחיל לקטון התמונה תהייה קטנה בהתאם/*/
   
 
 
@@ -47,7 +47,7 @@ header .Header {
 }
 
 .paperStyle { 
-  padding: '30px 20px';
-  width: '30%';
-  margin: '5% auto' 
+  padding: 30px 20px;
+  width: 30%;
+  margin: 5% auto;
 }
