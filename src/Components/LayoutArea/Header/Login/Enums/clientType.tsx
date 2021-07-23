@@ -2,6 +2,7 @@
 
    ADMINISTRATOR="admin",
    COMPANY="company",
-   CUSTOMER="customer"
+   CUSTOMER="customer",
+   GUEST="guest"
 }
 export default clientType;
