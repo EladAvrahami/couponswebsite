@@ -6,7 +6,7 @@ class CustomerData{
     lastName:string;
     email:string;
     password:string;
-    coupons:CouponData[];
+    coupons?:CouponData[];
 
 }
 export default CustomerData;

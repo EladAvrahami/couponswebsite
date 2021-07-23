@@ -23,7 +23,8 @@ class SingleCoupon extends Component<SingleCouponProps> {
 				END DATE:           {this.props.myCoupon.endDate} <br/>
 				AMOUNT:            {this.props.myCoupon.amount} <br/>
 				PRICE:                  {this.props.myCoupon.price} <br/>
-              
+                IMAGE:                  {this.props.myCoupon.image} <br/>
+
                 </pre>
             </div>
         );

@@ -20,7 +20,6 @@ function CouponPurchase(): JSX.Element {
 
         } catch {
             notify.error("The coupon was NOT purchased.");
-
         }
     }
     

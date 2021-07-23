@@ -5,7 +5,7 @@ import SingleCompanyTable from "../../Tables/SingleCompanyTable/SingleCompanyTab
 
 
 function AsideMenu():JSX.Element{
-   /* console.log("Zeevik the fox")
+    console.log("Zeevik the fox")
     console.log(store.getState().authState.user.clientType);
     switch (store.getState().authState.user.clientType) {
       case "admin":
@@ -23,7 +23,7 @@ function AsideMenu():JSX.Element{
                 <NavLink exact to="/GetCompanyCouponsByMaxPrice/" >Coupons by max-price</NavLink>
                 <NavLink exact to="/GetCompanyDetails">Company details</NavLink>
                 <NavLink exact to="/SingleCompanyTable">Coupons management</NavLink>
-                {/* <SingleCompanyTable/> *//*}
+                {/* <SingleCompanyTable/> */}
               </div>
             );
             case "customer":
@@ -33,13 +33,13 @@ function AsideMenu():JSX.Element{
                 <NavLink exact to="/MyPurchasedCouponsByMaxPrice/" >My coupons by max-price</NavLink>
                 <NavLink exact to="/GetCustomerDetails" >My details</NavLink>
                 <NavLink exact to="/SingleCustomerTable/" >My coupons</NavLink>
-                {/* <SingleCustomerTable/> *//*}
+                {/* <SingleCustomerTable/> */}
               </div>
             );
       default:
              
         break;
-    }*/
+    }
   
     return(
 <div className="Menu container">

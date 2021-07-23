@@ -1,33 +1,45 @@
-import axios from "axios";
-import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
-import store from "../../../../Redux/Store";
-import CompanyData from "../../../Models/CompanyData";
-import notify from "../../../Services/Notify";
+import { Component } from "react";
 import "./GetCompanyDetails.css";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import CompanyData from "../../../Models/CompanyData";
 
-function GetCompanyDetails(): JSX.Element {
-    const {register, handleSubmit, errors} = useForm<CompanyData>();
-    //for sending the browser to specific location 
-    const history = useHistory();
+interface GetCompanyDetailsState {
+    myCompany:CompanyData;
+}
 
-    /*
-    async function send(company:CompanyData){
-            //lecturer is in json mode, ready to send.....      
-            const response = await axios.get<CompanyData>("http://localhost:8080/coupons/GetCompanyDetails");
-            console.log("show me the money!!!!");
-            console.log(response.data);
+class GetCompanyDetails extends Component<{}, GetCompanyDetailsState> {
+
+    public constructor(props:{} ) {
+        super(props);
+        this.state = {            
+            myCompany : new CompanyData  
+        };
+        
     }
-    */
-    
-    return (
-        <div className="GetCompanyDetails Box">
-			<h2>My company's details</h2>
-               Name: {store.getState().authState.user.name}<br/>
-               Email:  {store.getState().authState.user.email}<br/>
-               UserId:  {store.getState().authState.user.userId}<br/>
-        </div>
-    );
+
+    public render(): JSX.Element {
+        return (
+            <div className="GetCompanyDetails">               
+                <div className="Box GetCompanyDetails">   
+                                <h3>Company details:</h3>                                
+                   COMPANY NAME: {this.state.myCompany.name} <br/>
+                   ID: {this.state.myCompany.id} <br/>
+                   EMAIL: {this.state.myCompany.email} <br/>
+                   PASSWORD: {this.state.myCompany.password} <br/>
+                </div>
+            </div>
+        );
+    }
+
+    public async componentDidMount(){
+        const result = await axios.get("http://localhost:8080/coupons/getOneCompanyLoggedIn");
+        const CompanyData = result.data;
+        console.log(CompanyData);
+        this.setState({
+            myCompany : CompanyData
+        })
+    }
 }
 
 export default GetCompanyDetails;

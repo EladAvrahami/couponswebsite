@@ -33,7 +33,7 @@ export interface CompanyAction{//אומר לי מה סוג הפעולות שאנ
 
 //--------------------------------------------------------------------------------------------------------------------
 //Car Action Creators - ייבאתי את קופון דאטה על מנת שיוסיף אליו נתוני קופון חדשים
-export function AddCouponAction(coupon: CouponData[],company:CompanyData):CompanyAction{//מביאים ךו מכוניות ואמרים שרוצים לעשות פעולה
+export function AddCouponAction(coupon: CouponData[],company:CompanyData):CompanyAction{//מביאים לו מכוניות ואמרים שרוצים לעשות פעולה
     return {type:companiesActionType.AddCoupon, payload: coupon}//מחזיר את הפעולה ואת הדאטה ששלחנו לו
 }
 
@@ -55,8 +55,8 @@ export function GetCouponsByCategory(categoryId:number):CompanyAction{
 export function GetCouponsByMaxPrice(maxPrice:number):CompanyAction{
     return {type: companiesActionType.GetCouponsByMaxPrice, payload: maxPrice}//מחזיר את הפעולה ואת הדאטה ששלחנו לו
 }
-export function GetCompanyDetails(companies:CompanyData):CompanyAction{
-    return{type:companiesActionType.GetCompanyDetails, payload:companies}
+export function GetCompanyDetails():CompanyAction{
+    return{type:companiesActionType.GetCompanyDetails,}
 }
 
 

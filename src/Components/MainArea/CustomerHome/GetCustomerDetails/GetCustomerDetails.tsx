@@ -1,33 +1,47 @@
-import axios from "axios";
-import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
-import store from "../../../../Redux/Store";
-import CustomerData from "../../../Models/CustomerData";
-import notify from "../../../Services/Notify";
+import { Component } from "react";
 import "./GetCustomerDetails.css";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import CompanyData from "../../../Models/CompanyData";
+import CustomerData from "../../../Models/CustomerData";
 
-function GetCustomerDetails(): JSX.Element {
-    const {register, handleSubmit, errors} = useForm<CustomerData>();
-    //for sending the browser to specific location 
-    const history = useHistory();
-
-    /*
-    async function send(company:CompanyData){
-            //lecturer is in json mode, ready to send.....      
-            const response = await axios.get<CompanyData>("http://localhost:8080/coupons/GetCompanyDetails");
-            console.log("show me the money!!!!");
-            console.log(response.data);
-    }
-    */
-    
-    return (
-        <div className="GetCustomerDetails Box">
-			<h2>My details:</h2>
-               Name: {store.getState().authState.user.name}<br/>
-               Email:  {store.getState().authState.user.email}<br/>
-               UserId:  {store.getState().authState.user.userId}<br/>
-        </div>
-    );
+interface GetCustomerDetailsState {
+    myCustomer:CustomerData;
 }
 
-export default GetCustomerDetails;;
+class GetCustomerDetails extends Component<{}, GetCustomerDetailsState> {
+
+    public constructor(props:{} ) {
+        super(props);
+        this.state = {            
+            myCustomer : new CustomerData  
+        };
+        
+    }
+
+    public render(): JSX.Element {
+        return (
+            <div className="GetCustomerDetails">               
+                <div className="Box GetCustomerDetails"> 
+                            <h3>My details:</h3>
+                   ID: {this.state.myCustomer.id} <br/>  
+                   FIRST NAME: {this.state.myCustomer.firstName} <br/>
+                   LAST NAME: {this.state.myCustomer.lastName} <br/>
+                   EMAIL: {this.state.myCustomer.email} <br/>
+                   PASSWORD: {this.state.myCustomer.password} <br/>
+                </div>
+            </div>
+        );
+    }
+
+    public async componentDidMount(){
+        const result = await axios.get("http://localhost:8080/coupons/getOneCustomer");
+        const CustomerData = result.data;
+        console.log(CustomerData);
+        this.setState({
+            myCustomer : CustomerData
+        })
+    }
+}
+
+export default GetCustomerDetails;

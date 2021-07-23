@@ -37,8 +37,8 @@ export function GetCustomerCouponsByMaxPrice(coupons: CouponData):CustomerAction
     return {type: CustomerActionType.GetCustomerCouponsByMaxPrice, payload:coupons}
 }
 
-export function GetCustomerDetails(customer: CustomerData):CustomerAction{
-    return {type: CustomerActionType.GetCustomerDetails, payload:customer}
+export function GetCustomerDetails():CustomerAction{
+    return {type: CustomerActionType.GetCustomerDetails, }
 }
 
 
