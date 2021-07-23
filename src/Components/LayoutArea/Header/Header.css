@@ -1,7 +1,7 @@
 .Header{
 
   display: flex;
-  background-color: aqua;
+  background-color: rgb(13, 37, 37);
   flex-direction: row;
   justify-content: space-between;
 }
