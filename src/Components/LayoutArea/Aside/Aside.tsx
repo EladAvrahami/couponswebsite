@@ -20,6 +20,7 @@ function AsideMenu():JSX.Element{
           case "company":
             return (
               <div className="CompanyMenu container">
+                <NavLink exact to="/GetCompanyCouponsByMaxPrice/" >Coupons by max-price</NavLink>
                 <NavLink exact to="/GetCompanyDetails">Company details</NavLink>
                 <NavLink exact to="/SingleCompanyTable">Coupons management</NavLink>
                 {/* <SingleCompanyTable/> */}
@@ -29,6 +30,7 @@ function AsideMenu():JSX.Element{
             return (
               <div className="CustomerMenu container">
               <NavLink exact to="/CouponPurchase" >Purchase coupons</NavLink>
+                <NavLink exact to="/MyPurchasedCouponsByMaxPrice/" >My coupons by max-price</NavLink>
                 <NavLink exact to="/GetCustomerDetails" >My details</NavLink>
                 <NavLink exact to="/SingleCustomerTable/" >My coupons</NavLink>
                 {/* <SingleCustomerTable/> */}

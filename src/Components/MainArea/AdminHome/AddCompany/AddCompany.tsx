@@ -5,6 +5,7 @@ import CompanyData from "../../../Models/CompanyData";
 import notify from "../../../Services/Notify";
 import "./AddCompany.css";
 import { Avatar, Button, ButtonGroup, Checkbox, Grid, InputLabel, NativeSelect, Paper, TextField, Typography } from "@material-ui/core";
+import AxiosRequest from "../../../../axios/AxiosRequest";
 
 const paperStyle = { padding: '30px 20px', width: '30%', margin: '5% auto' }
 function AddCompany(): JSX.Element {
@@ -15,7 +16,8 @@ function AddCompany(): JSX.Element {
     async function send(company:CompanyData){
         try{
             //lecturer is in json mode, ready to send.....      
-            const response = await axios.post<CompanyData>("http://localhost:8080/coupons/createcompany",company);
+            // const response = await axios.post<CompanyData>("http://localhost:8080/coupons/createcompany",company);
+            const response = await AxiosRequest.post<CompanyData>("/coupons/addCompany",company); //the link was wrong
             console.log(response);
             notify.success("The company was successfully added.");
         } catch {

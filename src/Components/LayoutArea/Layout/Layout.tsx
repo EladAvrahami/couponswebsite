@@ -8,6 +8,7 @@ import { BrowserRouter } from "react-router-dom"
 import Routing from "../../Routing/Routing"
 import CompaniesTable from "../../Tables/CompaniesTable/CompaniesTable"
 import CustomerTable from "../../Tables/CustomersTable/CustomersTable"
+import Aside from "../Aside/Aside";
 
 //func    name     return type
 function Layout():JSX.Element{ //JSX.Element = The component UI
@@ -18,7 +19,7 @@ function Layout():JSX.Element{ //JSX.Element = The component UI
                 <Header/>
                 {/*</header>*/}
                 <aside>
-                    <AsideMenu/>
+                    <Aside/>
                 </aside>
                 <main className="container">
                 <Routing/>

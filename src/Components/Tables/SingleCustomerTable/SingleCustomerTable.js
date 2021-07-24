@@ -11,7 +11,6 @@ const validateEmail = (email) => {
   return re.test(String(email).toLowerCase());
 }
 
-
 const SingleCustomerTable = () => {
 
   const [user, setUser] = useState([]);
@@ -27,12 +26,11 @@ const SingleCustomerTable = () => {
     { title: 'StartDate', field: 'startDate' },
     { title: 'EndDate', field: 'endDate' },
     { title: 'Amount', field: 'amount' },
-{
-              title: "Price",
-              field: "price",
-              customFilterAndSearch: (term, rowData) => rowData.price <= term,
-            },    
-            { title: 'Image', field: 'image' }
+    {
+      title: "Price", field: "price",
+      customFilterAndSearch: (term, rowData) => rowData.price <= term,
+    },
+    { title: 'Image', field: 'image' }
   ]
 
   // let data = [

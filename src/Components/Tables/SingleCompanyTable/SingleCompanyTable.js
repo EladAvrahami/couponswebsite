@@ -27,10 +27,9 @@ const SingleCompanyTable = () => {
     { title: 'EndDate', field: 'endDate' },
     { title: 'Amount', field: 'amount' },
     {
-      title: "Price",
-      field: "price",
+      title: "Price", field: "price",
       customFilterAndSearch: (term, rowData) => rowData.price <= term,
-    }, 
+    },
     { title: 'Image', field: 'image' }
   ]
 
