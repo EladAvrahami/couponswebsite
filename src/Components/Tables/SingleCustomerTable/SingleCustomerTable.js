@@ -29,6 +29,7 @@ const SingleCustomerTable = () => {
     {
       title: "Price", field: "price",
       customFilterAndSearch: (term, rowData) => rowData.price <= term,
+      /*my change*/
     },
     { title: 'Image', field: 'image' }
   ]
