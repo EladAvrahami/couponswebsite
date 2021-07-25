@@ -7,7 +7,6 @@ html,body,#root{
   font-style: italic;
   color: darkcyan;
   /*background-image:linear-gradient(45deg, lightblue, white) ;  */
-  background-color:silver;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   direction: ltr;
   display: flex;
@@ -21,6 +20,7 @@ html,body,#root{
   display: inline-block;
   text-align: left;
   border: 1px solid black;
+  background-color: #f8f9fa;
   padding: 0 10px;
   margin: 10px;
   border-radius: 10px;
@@ -41,7 +41,6 @@ html,body,#root{
 .container{
   border: green 5px solid;
   max-width: 100%;
-  /* min-height: 600px;*/
   margin: 0 auto;
   /*border: solid 2px black;תוסיף כדי לראות בבירור יותר מה עושה הפעולה בההערה למטה*/
   
@@ -67,17 +66,10 @@ html,body,#root{
   --cover: #f8f9fa;
 }
 
-.header {
-  border-bottom: 1px solid #ccc;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  background-color: var(--white);
-}
 /* Home page */
 .home-main {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("");
+    url("./Assets/shopingCartBackground.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;

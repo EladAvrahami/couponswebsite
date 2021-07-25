@@ -9,8 +9,8 @@ function adminPage(): JSX.Element {
         <div className="adminPage">
 			
             <main>
-                <CompaniesTable/>
-                <CustomersTable/>
+                {/* <CompaniesTable/>
+                <CustomersTable/> */}
             </main>
         </div>
     );

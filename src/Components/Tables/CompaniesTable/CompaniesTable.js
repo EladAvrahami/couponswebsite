@@ -3,7 +3,7 @@ import MaterialTable from 'material-table';
 import './CompaniesTable.css';
 import axios from 'axios';
 import { Alert, AlertTitle } from '@material-ui/lab';
-import AxiosRequest from "../../../axios/AxiosRequest";
+import AxiosRequest from '../../../axios/AxiosRequest';
 
 
 // regex for email validation
@@ -124,7 +124,6 @@ const CompanyTable = () => {
     }
 
     if (errorList.length < 1) {
-      // AxiosRequest.get("/coupons/getCouponsByCompany")
       AxiosRequest.post(`/coupons/addCompany`, newData)
         .then(response => {
           let newUserdata = [...user];

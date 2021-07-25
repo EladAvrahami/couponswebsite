@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import CompanyData from "../../../Models/CompanyData";
 import CustomerData from "../../../Models/CustomerData";
+import AxiosRequest from "../../../../axios/AxiosRequest";
 
 interface GetCustomerDetailsState {
     myCustomer:CustomerData;
@@ -34,7 +35,7 @@ class GetCustomerDetails extends Component<{}, GetCustomerDetailsState> {
     }
 
     public async componentDidMount(){
-        const result = await axios.get("http://localhost:8080/coupons/getOneCustomer");
+        const result = await AxiosRequest.get("/coupons/getCustomerLoggedIn");
         const CustomerData = result.data;
         console.log(CustomerData);
         this.setState({

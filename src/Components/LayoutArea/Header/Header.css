@@ -4,30 +4,35 @@
   background-color: rgb(13, 37, 37);
   flex-direction: row;
   justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  position: fixed;
+  height: fit-content;
 }
 /**/
-.Header > .loginButton {
+/* .Header > .loginButton {
   width: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-}
+  padding: auto;
+} */
 
-.Header > div {
-  width: 80%;
+.Header > .clientNav {
+  width: 75%;
   height: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+ 
+  
 }
-.navLink {
-  cursor: pointer;
-  text-decoration: none;
-  color: black;
-  padding: 10px;
-  background-color: green;
+
+.Header > .clientNav> .button{
+  padding-top: 30px;
+
 }
+
 
 /*.Header{*/
 /*  height: 10%*/

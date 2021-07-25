@@ -8,7 +8,7 @@ function customerPage(): JSX.Element {
         <div className="customerPage">
 			
             <main>
-                <SingleCustomerTable/>
+                {/* <SingleCustomerTable/> */}
             </main>
         </div>
     );

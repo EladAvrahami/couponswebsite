@@ -3,6 +3,7 @@ import MaterialTable from 'material-table';
 import './SingleCustomerTable.css';
 import axios from 'axios';
 import { Alert, AlertTitle } from '@material-ui/lab';
+import AxiosRequest from '../../../axios/AxiosRequest';
 
 
 // regex for email validation
@@ -37,7 +38,7 @@ const SingleCustomerTable = () => {
   // ]  
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/coupons/getCouponsByCustomer`)
+    AxiosRequest.get(`/coupons/getCouponsByCustomer`)
       .then(res => {
         const users = res.data;
         setUser(users);

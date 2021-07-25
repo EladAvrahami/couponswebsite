@@ -8,7 +8,7 @@ function companyPage(): JSX.Element {
         <div className="companyHome">
 			
             <main>
-                <SingleCompanyTable/>
+                {/* <SingleCompanyTable/> */}
             </main>
         </div>
     );
