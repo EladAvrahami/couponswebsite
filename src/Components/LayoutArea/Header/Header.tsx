@@ -1,7 +1,11 @@
 import { NavLink, useHistory } from "react-router-dom";
 import "./Header.css";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import store from "../../../Redux/Store";
+import {UserInterface} from "../../../interfaces/UserInterface";
+import {useSelector} from "react-redux";
+import {configureStore} from "@reduxjs/toolkit";
+import ConfigureStore from "../../../reduxToolkit/StoreConfig";
 
 function Header():JSX.Element{
     var history = useHistory();
@@ -11,23 +15,23 @@ function Header():JSX.Element{
 
     // const [clientType] = useState(store.getState().authState.user.clientType) //taken from Aside.tsx line 10
     // const [clientType] = useState(localStorage.getItem("user")) // maybe you can use just this instead?
-    const [clientType] = useState("admin") //example
+    const { email, role } = useSelector((state) => ConfigureStore.getState().LoginSlice);
 
     return(
         <div className="Header">
             <button className="loginButton" onClick={Login}>Login</button>
-            {clientType === 'admin' && <div>
+            {role === 'admin' && <div>
                 <NavLink className="navLink" exact to="/GetCustomerCoupons/" >Get customer coupons</NavLink>
                 <NavLink className="navLink" exact to="/GetCompanyCoupons/" >Get company coupons</NavLink>
                 <NavLink className="navLink" exact to="/CustomersTable" >Manage customers</NavLink>
                 <NavLink className="navLink" exact to="/CompaniesTable" >Manage companies</NavLink>
             </div>}
-            {clientType === 'company' && <div>
+            {role === 'company' && <div>
                 <NavLink className="navLink" exact to="/GetCompanyCouponsByMaxPrice/" >Coupons by max-price</NavLink>
                 <NavLink className="navLink" exact to="/GetCompanyDetails">Company details</NavLink>
                 <NavLink className="navLink" exact to="/SingleCompanyTable">Coupons management</NavLink>
             </div>}
-            {clientType === 'customer' && <div>
+            {role === 'customer' && <div>
                 <NavLink className="navLink" exact to="/CouponPurchase" >Purchase coupons</NavLink>
                 <NavLink className="navLink" exact to="/MyPurchasedCouponsByMaxPrice/" >My coupons by max-price</NavLink>
                 <NavLink className="navLink" exact to="/GetCustomerDetails" >My details</NavLink>

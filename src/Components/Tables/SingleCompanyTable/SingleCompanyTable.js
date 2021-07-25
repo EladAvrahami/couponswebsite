@@ -3,6 +3,7 @@ import MaterialTable from 'material-table';
 import './SingleCompanyTable.css';
 import axios from 'axios';
 import { Alert, AlertTitle } from '@material-ui/lab';
+import AxiosRequest from "../../../axios/AxiosRequest";
 
 
 // regex for email validation
@@ -26,7 +27,9 @@ const SingleCompanyTable = () => {
     { title: 'StartDate', field: 'startDate' },
     { title: 'EndDate', field: 'endDate' },
     { title: 'Amount', field: 'amount' },
-    { title: 'Price', field: 'price' },
+    {title: "Price", field: "price",
+      customFilterAndSearch: (term, rowData) => rowData.price <= term,
+    },
     { title: 'Image', field: 'image' }
   ]
 
@@ -35,7 +38,7 @@ const SingleCompanyTable = () => {
   // ]  
 
   useEffect(() => {
-    axios.get("http://localhost:8080/coupons/getCouponsByCompany")
+    AxiosRequest.get("/coupons/getCouponsByCompany")
       .then(res => {
         const users = res.data;
         setUser(users);
@@ -192,7 +195,8 @@ const SingleCompanyTable = () => {
       }
 
     if (errorList.length < 1) {
-      axios.post(`http://localhost:8080/coupons/addCoupon`, newData)
+      //const response = await AxiosRequest.post<CompanyData>("/coupons/addCompany",company); //the link was wrong
+      AxiosRequest.post(`/coupons/addCoupon`, newData)
         .then(response => {
           let newUserdata = [...user];
           newUserdata.push(newData);

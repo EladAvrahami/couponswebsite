@@ -1,14 +1,14 @@
 .Layout {
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     align-items: center;
 
-    height: 100%;
-    width: 90%;
+    min-height: 600px;
+    width: 100%;
 
     margin: 0 auto;
     background-color: whitesmoke;
-    border: rebeccapurple 5px dashed;
+    /* border: rebeccapurple 5px dashed; */
     /*box-sizing: border-box; !* fix css size bug/feature*!*/
    /* display: grid;
     grid-template-rows: 15% 80% 5%;

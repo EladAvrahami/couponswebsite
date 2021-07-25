@@ -7,8 +7,7 @@
 }
 /**/
 .Header > .loginButton {
-  width: 10%;
-  height: 100%;
+  width: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +15,7 @@
 }
 
 .Header > div {
-  width: 90%;
+  width: 80%;
   height: 100%;
   display: flex;
   justify-content: space-evenly;
