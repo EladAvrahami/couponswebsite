@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Layout from './Components/LayoutArea/Layout/Layout';
-
+import ConfigureStore from "./reduxToolkit/StoreConfig";
+import { Provider } from "react-redux";
 
 ReactDOM.render(
   <React.StrictMode>
-      <Layout/>
+      <Provider store={ConfigureStore}>
+          <Layout/>
+      </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
