@@ -2,6 +2,7 @@ import { NavLink, useHistory } from "react-router-dom";
 import "./Header.css";
 import {useState} from "react";
 import store from "../../../Redux/Store";
+import Aside from "../Aside/Aside";
 
 function Header():JSX.Element{
     var history = useHistory();
@@ -14,9 +15,15 @@ function Header():JSX.Element{
     const [clientType] = useState("admin") //example
 
     return(
-        <div className="Header">
-            <button className="loginButton" onClick={Login}>Login</button>
-            {clientType === 'admin' && <div>
+        <div className="Header ">   {/*header d-flex justify-content-center py-3 shadow-sm   **** my bootstrap*/}
+            {/* <div>logo</div> */}
+
+
+            <button className="loginButton btn btn-primary btn-s mx-2" onClick={Login}>Login</button>
+            
+            <Aside/>
+
+            {/* {clientType === 'admin' && <div>
                 <NavLink className="navLink" exact to="/GetCustomerCoupons/" >Get customer coupons</NavLink>
                 <NavLink className="navLink" exact to="/GetCompanyCoupons/" >Get company coupons</NavLink>
                 <NavLink className="navLink" exact to="/CustomersTable" >Manage customers</NavLink>
@@ -32,7 +39,7 @@ function Header():JSX.Element{
                 <NavLink className="navLink" exact to="/MyPurchasedCouponsByMaxPrice/" >My coupons by max-price</NavLink>
                 <NavLink className="navLink" exact to="/GetCustomerDetails" >My details</NavLink>
                 <NavLink className="navLink" exact to="/SingleCustomerTable/" >My coupons</NavLink>
-            </div>}
+            </div>} */}
         </div>
     );
 }

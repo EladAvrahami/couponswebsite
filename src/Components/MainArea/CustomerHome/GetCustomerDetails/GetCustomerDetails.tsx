@@ -28,7 +28,6 @@ class GetCustomerDetails extends Component<{}, GetCustomerDetailsState> {
                    FIRST NAME: {this.state.myCustomer.firstName} <br/>
                    LAST NAME: {this.state.myCustomer.lastName} <br/>
                    EMAIL: {this.state.myCustomer.email} <br/>
-                   PASSWORD: {this.state.myCustomer.password} <br/>
                 </div>
             </div>
         );

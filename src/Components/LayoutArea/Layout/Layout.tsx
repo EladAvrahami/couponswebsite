@@ -22,9 +22,7 @@ function Layout():JSX.Element{ //JSX.Element = The component UI
                 {/* <CompaniesTable/>
                 <CustomerTable/> */}
                 </main>
-                <footer>
                    <Copyright/>
-                </footer>
             </BrowserRouter>
         </div>
     );

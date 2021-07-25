@@ -27,7 +27,7 @@ class GetCompanyDetails extends Component<{}, GetCompanyDetailsState> {
                    COMPANY NAME: {this.state.myCompany.name} <br/>
                    ID: {this.state.myCompany.id} <br/>
                    EMAIL: {this.state.myCompany.email} <br/>
-                   PASSWORD: {this.state.myCompany.password} <br/>
+                    
                 </div>
             </div>
         );

@@ -6,6 +6,7 @@ import SingleCompanyTable from "../../Tables/SingleCompanyTable/SingleCompanyTab
 
 function AsideMenu():JSX.Element{
     console.log("Zeevik the fox")
+   
     console.log(store.getState().authState.user.clientType);
     switch (store.getState().authState.user.clientType) {
       case "admin":
@@ -19,6 +20,8 @@ function AsideMenu():JSX.Element{
         );
           case "company":
             return (
+
+              
               <div className="CompanyMenu container">
                 <NavLink exact to="/GetCompanyCouponsByMaxPrice/" >Coupons by max-price</NavLink>
                 <NavLink exact to="/GetCompanyDetails">Company details</NavLink>
@@ -37,62 +40,65 @@ function AsideMenu():JSX.Element{
               </div>
             );
       default:
-             
-        break;
-    }
   
     return(
-<div className="Menu container">
 
- 
+<div className="GustMenu container">
+              <NavLink exact to="/CouponPurchase" >קצת עלינו</NavLink>
+                <NavLink exact to="/MyPurchasedCouponsByMaxPrice/" >הקופונים שלנו </NavLink>
+                <NavLink exact to="/GetCustomerDetails" >וכו</NavLink>
+                <NavLink exact to="/SingleCustomerTable/" >וכו</NavLink>
+                {/* <SingleCustomerTable/> */}
+              </div>
 
            
-                {/*תפריט של אדמין  */}
-                 {/* <NavLink exact to="/AddCompany" >Add company</NavLink>
-                <NavLink exact to="/UpdateCompany" >Update company</NavLink>
-                <NavLink exact to="/DeleteCompany" >Delete company</NavLink>
-                <NavLink exact to="/GetOneCompany/" >Get company by id</NavLink>
-                <NavLink exact to="/GetAllCompanies" >Get all companies</NavLink>
-                <NavLink exact to="/AddCustomer" >Add customer</NavLink>
-                <NavLink exact to="/UpdateCustomer">Update customer</NavLink>
-                <NavLink exact to="/DeleteCustomer">Delete customer</NavLink>
-                <NavLink exact to="/GetOneCustomer/:id">My details</NavLink>
-                <NavLink exact to="/GetAllCustomers">Get all customers</NavLink> * */}
+            //     {/*תפריט של אדמין  */}
+            //      {/* <NavLink exact to="/AddCompany" >Add company</NavLink>
+            //     <NavLink exact to="/UpdateCompany" >Update company</NavLink>
+            //     <NavLink exact to="/DeleteCompany" >Delete company</NavLink>
+            //     <NavLink exact to="/GetOneCompany/" >Get company by id</NavLink>
+            //     <NavLink exact to="/GetAllCompanies" >Get all companies</NavLink>
+            //     <NavLink exact to="/AddCustomer" >Add customer</NavLink>
+            //     <NavLink exact to="/UpdateCustomer">Update customer</NavLink>
+            //     <NavLink exact to="/DeleteCustomer">Delete customer</NavLink>
+            //     <NavLink exact to="/GetOneCustomer/:id">My details</NavLink>
+            //     <NavLink exact to="/GetAllCustomers">Get all customers</NavLink> * */}
                 
 
                  
-                 {/*תפריט של חברה */}
-               {/*<NavLink exact to="/AddCoupon" >Add coupon</NavLink>
-                <NavLink exact to="/UpdateCoupon" >Update coupon</NavLink>
-                <NavLink exact to="/DeleteCoupon" >Delete Coupon</NavLink>
-                <NavLink exact to="/GetCompanyCoupons/" >Get All Coupons</NavLink>
-                <NavLink exact to="/GetCompanyCouponsByCategory" >All Coupons By Category</NavLink>
-                <NavLink exact to="/GetCompanyCouponsByMaxPrice/" >All Coupons By price</NavLink>
-                <NavLink exact to="/GetCompanyDetails">Company details</NavLink>*/}
+            //      {/*תפריט של חברה */}
+            //    {/*<NavLink exact to="/AddCoupon" >Add coupon</NavLink>
+            //     <NavLink exact to="/UpdateCoupon" >Update coupon</NavLink>
+            //     <NavLink exact to="/DeleteCoupon" >Delete Coupon</NavLink>
+            //     <NavLink exact to="/GetCompanyCoupons/" >Get All Coupons</NavLink>
+            //     <NavLink exact to="/GetCompanyCouponsByCategory" >All Coupons By Category</NavLink>
+            //     <NavLink exact to="/GetCompanyCouponsByMaxPrice/" >All Coupons By price</NavLink>
+            //     <NavLink exact to="/GetCompanyDetails">Company details</NavLink>*/}
                  
                  
                  
-                 {/*תפריט של הלקוח */}
-                {/* <NavLink exact to="/CouponPurchase" >Purchase coupons</NavLink>
-                <NavLink exact to="/MyPurchasedCoupons/" >My coupons</NavLink>
-                <NavLink exact to="/MyPurchasedCouponsByCategory" >my coupons by category</NavLink>
-                <NavLink exact to="/MyPurchasedCouponsByMaxPrice/" >my coupons by price</NavLink>
-                <NavLink exact to="/MyDetails" >my details</NavLink>
+            //      {/*תפריט של הלקוח */}
+            //     {/* <NavLink exact to="/CouponPurchase" >Purchase coupons</NavLink>
+            //     <NavLink exact to="/MyPurchasedCoupons/" >My coupons</NavLink>
+            //     <NavLink exact to="/MyPurchasedCouponsByCategory" >my coupons by category</NavLink>
+            //     <NavLink exact to="/MyPurchasedCouponsByMaxPrice/" >my coupons by price</NavLink>
+            //     <NavLink exact to="/MyDetails" >my details</NavLink>
               
 
-              
-                {/* 
-                    <a href="/car">חיפוש רכב</a>
-                    <a href="/bike">חיפוש דו גלגלי</a>
-                    <a href="/handicap">בדיקת רכב נכה</a>
-                    <a href="/off">האם הורד מהכביש</a>
-                    <a href="/recall">האם עבר ריקול</a>
-                    <a href="/stolen">בדיקת רכב גנוב</a>
+                
+            //     {/* 
+            //         <a href="/car">חיפוש רכב</a>
+            //         <a href="/bike">חיפוש דו גלגלי</a>
+            //         <a href="/handicap">בדיקת רכב נכה</a>
+            //         <a href="/off">האם הורד מהכביש</a>
+            //         <a href="/recall">האם עבר ריקול</a>
+            //         <a href="/stolen">בדיקת רכב גנוב</a>
                
-            </nav>
-             */}
-        </div>
+            // </nav>
+            //  */}
+     
     );
+}
 }
 
 export default AsideMenu;
