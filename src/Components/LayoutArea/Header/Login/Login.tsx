@@ -12,6 +12,8 @@ import store from "../../../../Redux/Store"
 import clientType from "./Enums/clientType";
 import UserModel from "../../../Models/UserModel";
 import jwt_decode from "jwt-decode"
+import {useDispatch, useSelector} from "react-redux";
+import {authorize} from "../../../../reduxToolkit/LoginSlice";
 
 const paperStyle = { padding: '30px 20px', width: '30%', margin: '5% auto' }
 //const AvatarStyle={align:'center'}
@@ -19,6 +21,8 @@ function Login(): JSX.Element {
  const { register, handleSubmit, errors } = useForm<CredentialsModel>();
     //for sending the browser to specific location 
     const history = useHistory();
+
+    const dispatch = useDispatch();
 
     async function send(credential: CredentialsModel) {
         switch (credential.clientType){
@@ -32,7 +36,13 @@ function Login(): JSX.Element {
                     console.log("our user in redux")
                     console.log(store.getState().authState.user);
                     notify.success("Admin login successful!");
-            history.push("/adminPage");
+                    history.push("/adminPage");
+
+                    dispatch(authorize({
+                        emailValue: JSON.parse(localStorage.getItem("user")).email,
+                        roleValue: JSON.parse(localStorage.getItem("user")).clientType
+                    }))
+
                 }catch(err){
                     notify.error("Login failed. You either typed wrong details, or this account does not exist.");
                     console.log(err);
@@ -49,6 +59,12 @@ function Login(): JSX.Element {
             console.log(userInfo);
             notify.success("Company login successful!");
             history.push("/companyPage");
+
+            dispatch(authorize({
+                emailValue: JSON.parse(localStorage.getItem("user")).email,
+                roleValue: JSON.parse(localStorage.getItem("user")).clientType
+            }))
+
         } catch {
             notify.error("Login failed. You either typed wrong details, or this account does not exist");
         }
@@ -62,7 +78,13 @@ function Login(): JSX.Element {
             const userInfo = {email:decoded.sub,password:"",clientType:decoded.userType, token:response.data,userId:decoded.id,name:decoded.name}
             store.dispatch(LoginAction(userInfo));
             notify.success("Customer login successful!");
-           history.push("/customerPage");
+            history.push("/customerPage");
+
+            dispatch(authorize({
+                emailValue: JSON.parse(localStorage.getItem("user")).email,
+                roleValue: JSON.parse(localStorage.getItem("user")).clientType
+            }))
+
         } catch {
             notify.error("Login failed. You either typed wrong details, or this account does not exist");
         }
