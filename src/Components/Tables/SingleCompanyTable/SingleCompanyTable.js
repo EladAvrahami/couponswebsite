@@ -103,7 +103,7 @@ const SingleCompanyTable = () => {
     
 
     if (errorList.length < 1) {
-      axios.put(`http://localhost:8080/coupons/updateCoupon`, newData)
+      AxiosRequest.put(`/coupons/updateCoupon`, newData)
         .then(response => {
           const updateUser = [...user];
           const index = oldData.tableData.id;
@@ -131,7 +131,7 @@ const SingleCompanyTable = () => {
 
   //function for deleting a row
   const handleRowDelete = (oldData, resolve) => {
-    axios.delete(`http://localhost:8080/coupons/deleteCoupon/${oldData.id}`)
+    AxiosRequest.delete(`/coupons/deleteCoupon/${oldData.id}`)
       .then(response => {
         const dataDelete = [...user];
         const index = oldData.tableData.id;

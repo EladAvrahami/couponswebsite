@@ -3,6 +3,7 @@ import MaterialTable from 'material-table';
 import './CompaniesTable.css';
 import axios from 'axios';
 import { Alert, AlertTitle } from '@material-ui/lab';
+import AxiosRequest from "../../../axios/AxiosRequest";
 
 
 // regex for email validation
@@ -30,7 +31,7 @@ const CompanyTable = () => {
   // ]  
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/coupons/getAllCompanies`)
+    AxiosRequest.get(`/coupons/getAllCompanies`)
       .then(res => {
         const users = res.data;
         setUser(users);
@@ -59,7 +60,7 @@ const CompanyTable = () => {
     
 
     if (errorList.length < 1) {
-      axios.put(`http://localhost:8080/coupons/updateCompany`, newData)
+      AxiosRequest.put(`/coupons/updateCompany`, newData)
         .then(response => {
           const updateUser = [...user];
           const index = oldData.tableData.companyId;
@@ -86,7 +87,7 @@ const CompanyTable = () => {
 
   //function for deleting a row
   const handleRowDelete = (oldData, resolve) => {
-    axios.delete(`http://localhost:8080/coupons/deleteCompany/${oldData.id}`)
+    AxiosRequest.delete(`/coupons/deleteCompany/${oldData.id}`)
       .then(response => {
         const dataDelete = [...user];
         const index = oldData.tableData.id;
@@ -123,7 +124,8 @@ const CompanyTable = () => {
     }
 
     if (errorList.length < 1) {
-      axios.post(`http://localhost:8080/coupons/addCompany`, newData)
+      // AxiosRequest.get("/coupons/getCouponsByCompany")
+      AxiosRequest.post(`/coupons/addCompany`, newData)
         .then(response => {
           let newUserdata = [...user];
           newUserdata.push(newData);
