@@ -3,13 +3,13 @@ import "./Footer.css"
 function Copyright():JSX.Element{
     return(
       <div className="footer">
-      <div className="container footer-container">
+      <div className=" footer-container">
         <div className="row no-gutters">
           <div className="col-12 col-md-6 col-lg-6 d-flex">
             <div className="footer-item">
               <p className="footer-header">Get to Know Us</p>
               <ul className="footer-ul">
-                <li className="footer-li">About elad +inkedIn link <img src="" alt="" /> </li>
+                <li className="footer-li">About elad  <img src="" alt="" /> </li>
                 <li className="footer-li">About chen</li>
                 <li className="footer-li">About david </li>
               </ul>
