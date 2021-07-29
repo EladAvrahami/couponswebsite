@@ -5,8 +5,8 @@ html,body,#root{
   width: 100% ;
   text-align: center;
   font-style: italic;
-  color: darkcyan;
-  /*background-image:linear-gradient(45deg, lightblue, white) ;  */
+  color: black;
+  /* background-image:linear-gradient(45deg, lightblue, white) ;  */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   direction: ltr;
   display: flex;
@@ -14,6 +14,7 @@ html,body,#root{
   /*כדי לכלול את הפדינג והבורדר בתוך הגדלים של הדיבים שבאבחר בהמשך*/
   outline: none;
   /* מבטל לכל הדפדפנים את הבורדר האוטומטי כמו למשל בכפתור האינפוט בחיפוש*/
+  
 }
 /**/
 .Box{
@@ -73,8 +74,8 @@ html,body,#root{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  padding: 50px 0 50px 0;
-  height: 750px;
+  padding: 10% 0 10% 0;
+  min-height: 750px;/***********************************************************************/
   width: 100%;
   display: flex;
   justify-content: center;

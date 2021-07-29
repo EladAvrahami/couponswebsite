@@ -9,11 +9,13 @@ export const LoginSlice = createSlice({
         role: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).clientType : '',
     },
     reducers: {
+        /*כניסה */
         authorize: (state, action) => {
             const { emailValue, roleValue } = action.payload;
             state.email = emailValue;
             state.role = roleValue;
         },
+         /*יציאה  */
         unAuthorize: (state) => {
             state.email = '';
             state.role = '';

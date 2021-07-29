@@ -7,6 +7,7 @@ import SingleCoupon from "../../../Coupons/SingleCoupon";
 import CustomerData from "../../../Models/CustomerData";
 import CouponData from "../../../Models/CouponData";
 import notify from "../../../Services/Notify";
+import AxiosRequest from "../../../../axios/AxiosRequest";
 
 
 function GetCustomerCoupons(): JSX.Element {
@@ -19,7 +20,7 @@ function GetCustomerCoupons(): JSX.Element {
     async function send(customer:CustomerData){
         try{
             //lecturer is in json mode, ready to send.....      
-    const { data : coupons } : { data : CouponData[] } = await axios.get(`http://localhost:8080/coupons/getCouponsByCustomer2/`+customer.id);
+    const { data : coupons } : { data : CouponData[] } = await AxiosRequest.get(`coupons/getCouponsByCustomer2/`+customer.id);
     setCoupons(coupons);
             notify.success("");
         } catch {

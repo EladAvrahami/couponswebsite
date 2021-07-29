@@ -4,6 +4,7 @@ import './CompaniesTable.css';
 import axios from 'axios';
 import { Alert, AlertTitle } from '@material-ui/lab';
 import AxiosRequest from '../../../axios/AxiosRequest';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 
 // regex for email validation
@@ -18,7 +19,28 @@ const CompanyTable = () => {
   const [user, setUser] = useState([]);
   const [iserror, setIserror] = useState(false);
   const [errorMessages, setErrorMessages] = useState([]);
+   const[preferDarkMode, setPreferDarkMode] = useState([]);
+  const[Brightness4Icon, setBrightness4Icon] = useState([]);
+  const[Brightness7Icon, setBrightness7Icon]= useState([]);
+  // const[Checkbox, setCheckbox] = uesState([]);
+  // const[filter, setFilter] = uesState([]);
+ 
 
+  
+
+
+
+  // Line 163:17:  'preferDarkMode' is not defined     no-undef
+  // Line 163:35:  'Brightness4Icon' is not defined    react/jsx-no-undef
+  // Line 163:57:  'Brightness7Icon' is not defined    react/jsx-no-undef
+  // Line 166:17:  'setPreferDarkMode' is not defined  no-undef
+  // Line 166:36:  'preferDarkMode' is not defined     no-undef
+  // Line 172:18:  'Checkbox' is not defined           react/jsx-no-undef
+  // Line 173:28:  'filter' is not defined             no-undef
+  // Line 175:21:  'setFilter' is not defined          no-undef
+  // Line 175:32:  'filter' is not defined             no-undef
+  // Line 183:17:  'setFilter' is not defined          no-undef
+  // Line 183:28:  'filter' is not defined             no-undef
   let columns = [
     { title: 'ID', field: 'id' },
     { title: 'Name', field: 'name' },
@@ -154,6 +176,7 @@ const CompanyTable = () => {
         title="Company details:"
         columns={columns}
         data={user}
+        
         options={{
           headerStyle: { borderBottomColor: 'red', borderBottomWidth: '3px', fontFamily: 'verdana' },
           actionsColumnIndex: -1

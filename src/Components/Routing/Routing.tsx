@@ -16,7 +16,6 @@ import GetCompanyCouponsByCategory from "../MainArea/CompanyHome/GetCompanyCoupo
 import GetCompanyCouponsByMaxPrice from "../MainArea/CompanyHome/GetCompanyCouponsByMaxPrice/GetCompanyCouponsByMaxPrice";
 import GetCompanyDetails from "../MainArea/CompanyHome/GetCompanyDetails/GetCompanyDetails";
 import UpdateCoupon from "../MainArea/CompanyHome/UpdateCoupon/UpdateCoupon";
-import CouponPurchase from "../MainArea/CustomerHome/PurchaseCoupon/CouponPurchase";
 import Page404 from "../Routing/Page404/Page404";
 import GetCompanyCoupons from "../MainArea/AdminHome/GetCompanyCoupons/GetCompanyCoupons";
 import "./Routing.css";
@@ -31,6 +30,11 @@ import GetCustomerDetails from "../MainArea/CustomerHome/GetCustomerDetails/GetC
 import companyPage from "../MainArea/CompanyHome/companyPage/companyPage";
 import customerPage from "../MainArea/CustomerHome/customerPage/customerPage";
 import adminPage from "../MainArea/AdminHome/adminPage/adminPage";
+import HomePage from "../MainArea/HomePage/HomePage";
+import Logout from "../LayoutArea/Header/Logout/Logout";
+import CouponPurchase from "../MainArea/CustomerHome/PurchaseCoupon/CouponPurchase";
+import CouponStore from "../../CouponsCarts/CouponStore/couponStore";
+
 
 function Routing(): JSX.Element {
 
@@ -65,10 +69,11 @@ function Routing(): JSX.Element {
                <Route path="/CompanyPage" component={companyPage} exact/>
                <Route path="/CustomerPage" component={customerPage} exact/>
                <Route path="/AdminPage" component={adminPage} exact/>
-
-              <Redirect from="/" to="/Home" exact />
-             {/*  <Route component={Page404}/>  MUST BE LAST !!!!!!!*/}
-             
+               <Route path="/Logout" component={Logout} exact/>
+               <Route path="/CouponStore" component={CouponStore} exact/>
+               {/* <Route path ="/" component={HomePage} exact /> */}
+               <Redirect from="/" to="/CouponStore" exact />
+            {/* <Route component={Page404}/>  MUST BE LAST !!!!!!! */}
         </div>
     );
 }

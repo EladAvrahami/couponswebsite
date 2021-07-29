@@ -17,6 +17,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import AxiosRequest from "../../../../axios/AxiosRequest";
 import SingleCoupon from "../../../Coupons/SingleCoupon";
 import CompanyData from "../../../Models/CompanyData";
 import CouponData from "../../../Models/CouponData";
@@ -134,7 +135,7 @@ function GetCompanyCoupons(): JSX.Element {
     async function send(company:CompanyData){
         try{
             //lecturer is in json mode, ready to send.....      
-    const { data : coupons } : { data : CouponData[] } = await axios.get(`http://localhost:8080/coupons/getCouponsByCompany/`+company.id);
+    const { data : coupons } : { data : CouponData[] } = await AxiosRequest.get(`/coupons/getCouponsByCompany/`+company.id);
     setCoupons(coupons);
             notify.success("");
         } catch {

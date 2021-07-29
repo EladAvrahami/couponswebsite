@@ -1,5 +1,4 @@
 import { Avatar, Button, ButtonGroup, Checkbox, Grid, InputLabel, NativeSelect, Paper, TextField, Typography } from "@material-ui/core";
-import LockOpenOutlinedIcon from '@material-ui/icons/LockOpenOutlined';
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
@@ -26,6 +25,7 @@ function Login(): JSX.Element {
 
     async function send(credential: CredentialsModel) {
         switch (credential.clientType){
+
             case clientType.ADMINISTRATOR:
                 try{
                     const response = await axios.post<string>("http://localhost:8080/coupons/adminLogin",credential);
@@ -89,6 +89,11 @@ function Login(): JSX.Element {
             notify.error("Login failed. You either typed wrong details, or this account does not exist");
         }
         break;
+
+        default:
+            history.push("/HomePage");
+            break;
+        
     }
     }
     return (

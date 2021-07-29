@@ -2,10 +2,8 @@
     /* display: flex; */
     flex-direction: column;
     align-items: center;
-
     min-height: 600px;
     width: 100%;
-
     margin: 0 auto;
     background-color: whitesmoke;
     /* border: rebeccapurple 5px dashed; */
@@ -44,7 +42,7 @@
   background-size: cover;
   background-position: center center;
   padding: 50px 0 50px 0;
-  height: 750px;
+  min-height: 750px;/***********************************************************************/
   width: 100%;
   display: flex;
   justify-content: center;

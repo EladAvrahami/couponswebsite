@@ -6,6 +6,7 @@ import jwt_decode from "jwt-decode"
 //auth state
 export class AuthState{
     public user:UserModel = null;
+    public isLogged:boolean;
     public constructor(){
         const storedUser = JSON.parse(localStorage.getItem("user"));
         if (storedUser) {this.user = storedUser}
@@ -49,11 +50,13 @@ export function authReducer(currentState: AuthState = new AuthState(), action: A
           //  newState.user.email = decoded.sub;
             //here is the payload is the logged in user sent from the server
             newState.user = action.payload; 
+            newState.isLogged=true;
             //saving in the local storage (won't be deleted)
             localStorage.setItem("user",JSON.stringify(newState.user));
             break;
         case AuthActionType.Logout:
             newState.user = null;
+            newState.isLogged=false;
             localStorage.removeItem("user")
     }
     return newState;
