@@ -41,7 +41,7 @@ function Header():JSX.Element{
 
         <div className="InHeader d-flex justify-content-center  shadow-sm">
           
-             {role === undefined && <div className="inHeader ml-auto d-flex mr-3">
+             {role === '' && <div className="inHeader ml-auto d-flex mr-3">
              <div>
              <button className="btn btn-primary btn-s mx-1 " onClick={Login}>Login</button>
              </div>

@@ -4,6 +4,8 @@ import store from "../../../../../src/Redux/Store";
 import { LogoutAction } from "../../../../Redux/AuthState";
 import notify from "../../../Services/Notify";
 import Header from "../Header";
+import {useDispatch} from "react-redux";
+import {unAuthorize} from "../../../../reduxToolkit/LoginSlice";
 
 // const Logout = () => {
 //     localStorage.localStorage.clear();;
@@ -12,8 +14,10 @@ import Header from "../Header";
 
 
 function Logout(): JSX.Element {
-   
-    
+
+    const dispatch = useDispatch();
+    dispatch(unAuthorize());
+
     // store.dispatch(LogoutAction());
     localStorage.clear();
     const history=useHistory();
