@@ -15,7 +15,7 @@ export const LoginSlice = createSlice({
             state.email = emailValue;
             state.role = roleValue;
         },
-         /*יציאה  */
+         /* בעצם מחזיר לסטייט של לוגין סלייס שדות ריקים -יציאה  */
         unAuthorize: (state) => {
             state.email = '';
             state.role = '';

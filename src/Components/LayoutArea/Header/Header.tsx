@@ -29,6 +29,7 @@ function Header():JSX.Element{
 
     const handleLogout = () => {
      dispatch(unAuthorize());
+     localStorage.clear();
     }
 
     // const [clientType] = useState(store.getState().authState.user.clientType) //taken from Aside.tsx line 10
@@ -41,10 +42,10 @@ function Header():JSX.Element{
             <h3 className="font-weight-bold text-primary mx-1">Coupon System</h3>
             </Link>
 
-            <div className="InHeader d-flex justify-content-center  shadow-sm">
+            <div className="InHeader d-flex justify-content-center   shadow-sm">
 
-                {role === '' && <div className="inHeader ml-auto d-flex mr-3">
-                    <button className="btn btn-primary btn-s mx-1 " onClick={Login}>Login</button>
+                {role === '' && <div className="inHeader ml-auto d-flex mr-3" onClick={Login} >
+                  <p className="font-weight-bold text-primary mx-1">login</p>   
                 </div>}
 
                 {role === 'admin' && <div className="inHeader ml-auto d-flex mr-3">
@@ -65,7 +66,6 @@ function Header():JSX.Element{
                     </Link>
                 <div>
                 {/* <button className="btn btn-primary btn-s mx-1 " onClick={Logout}>Logout</button> */}
-
                  </div>
                 </div>}
 
