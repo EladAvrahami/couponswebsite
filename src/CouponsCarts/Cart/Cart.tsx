@@ -36,7 +36,7 @@ const Cart: React.FC<Props> = ({ cartItems, addToCart, removeFromCart }) => {
 
 
          {/* This Button uses a Font Icon, see the installation instructions in the Icon component docs. */}
-         <Link to="/PurchasedCoupon">  {/* הוספת לינק שיפנה למסך הבית בלחיצה על לוגו */}
+         <Link to="/CouponPurchase">  {/* הוספת לינק שיפנה למסך הבית בלחיצה על לוגו */}
          <Button className='payCartBtn'>
       purchase coupons  <CreditCardIcon className='CreditCardIcon' >onClick={CouponPurchase}</CreditCardIcon>
       </Button>

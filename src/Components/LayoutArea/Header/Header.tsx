@@ -44,14 +44,17 @@ function Header():JSX.Element{
             <h3 className="font-weight-bold text-primary mx-1">Coupon System</h3>
             </Link>
 
-            <div className="InHeader d-flex justify-content-center   shadow-sm">
+            <div className="InHeader d-flex shadow-sm">
 
                 {/*תפריט אורח  */}
                 {role === '' && <div className="inHeader ml-auto d-flex mr-3"  >
-
-                  <p className="font-weight-bold text-primary mx-1" onClick={Login}>login</p> 
+                  {/*onClick={Login}*/}
+                  <Link to="/Login">
+                    <button className=" button btn btn-primary btn-s mx-1 "  >Login</button>
+                    </Link>
+                   
                   <Link  to="/CouponStore">
-                    <button className="btn btn-primary btn-s mx-1 " >Check our coupons!</button>
+                    <button className="button btn btn-primary btn-s mx-1 margin-right: 30px " >Check our coupons!</button>
                     </Link>
                 </div>}
 
@@ -93,9 +96,17 @@ function Header():JSX.Element{
                 </div>}
 
                 {role === 'customer' && <div className="inHeader ml-auto d-flex mr-3">
-                    <NavLink className="navLink" exact to="/CouponPurchase" >Purchase coupons</NavLink>
-                    <NavLink className="navLink" exact to="/GetCustomerDetails" >My details</NavLink>
-                    <NavLink className="navLink" exact to="/SingleCustomerTable/" >My coupons</NavLink>
+                    
+                <Link  to="/CouponPurchase">
+                    <button className="btn btn-primary btn-s mx-1 " >Purchase coupons</button>
+                    </Link>
+                    
+                    <Link  to="/GetCustomerDetails">
+                    <button className="btn btn-primary btn-s mx-1 " >My details</button>
+                    </Link>.
+                    <Link  to="/SingleCustomerTable/">
+                    <button className="btn btn-primary btn-s mx-1 " >My coupons</button>
+                    </Link>
                     <Link  to="/CouponStore">
                     <button className="btn btn-primary btn-s mx-1 " >show coupons</button>
                     </Link>

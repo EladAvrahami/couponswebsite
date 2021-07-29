@@ -11,15 +11,20 @@
 }
 
 
-/**/
-/* .Header > .loginButton {
-  width: 5%;
-  display: flex;
-  justify-content: center;
+
+ .Header>.InHeader {
+  width: 75%;
+  border: 2px solid grey; display: flex;align-items: stretch;
+  /* justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  padding: auto;
-} */
+  padding: auto; */
+} 
+
+
+.Header>.InHeader>.Btn{
+  margin-right: 80px 
+} 
 
 .Header.inHeader{
 width: 100%;
