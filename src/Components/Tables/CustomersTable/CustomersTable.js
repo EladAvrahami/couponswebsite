@@ -3,6 +3,7 @@ import MaterialTable from 'material-table';
 import './CustomersTable.css';
 import axios from 'axios';
 import { Alert, AlertTitle } from '@material-ui/lab';
+import AxiosRequest from '../../../axios/AxiosRequest';
 
 
 // regex for email validation
@@ -31,7 +32,7 @@ const CustomerTable = () => {
   // ]  
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/coupons/getallcustomers`)
+    AxiosRequest.get(`/coupons/getAllCustomers`)
       .then(res => {
         const users = res.data;
         setUser(users);
@@ -69,7 +70,7 @@ const CustomerTable = () => {
     
 
     if (errorList.length < 1) {
-      axios.post(`http://localhost:8080/coupons/updateCustomer`, newData)
+      AxiosRequest.post(`/coupons/updateCustomer`, newData)
         .then(response => {
           const updateUser = [...user];
           const index = oldData.tableData.companyId;
@@ -96,7 +97,7 @@ const CustomerTable = () => {
 
   //function for deleting a row
   const handleRowDelete = (oldData, resolve) => {
-    axios.delete(`http://localhost:8080/coupons/deleteCustomer/${oldData.id}`)
+    AxiosRequest.delete(`/coupons/deleteCustomer/${oldData.id}`)
       .then(response => {
         const dataDelete = [...user];
         const index = oldData.tableData.id;
@@ -139,7 +140,7 @@ const CustomerTable = () => {
     }
 
     if (errorList.length < 1) {
-      axios.post(`http://localhost:8080/coupons/addCustomer`, newData)
+      AxiosRequest.post(`/coupons/addCustomer`, newData)
         .then(response => {
           let newUserdata = [...user];
           newUserdata.push(newData);

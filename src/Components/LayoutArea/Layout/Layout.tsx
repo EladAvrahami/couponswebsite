@@ -1,18 +1,18 @@
-import "./Layout.css"
-import Header from "../Header/Header"
+import "./Layout.css";
+import Header from "../Header/Header";
 import AsideMenu from "../Aside/Aside";
-import Copyright from "../Footer/Footer"
-import Home from "../../MainArea/Home/Home"
-
-import { BrowserRouter } from "react-router-dom"
-import Routing from "../../Routing/Routing"
-import CompaniesTable from "../../Tables/CompaniesTable/CompaniesTable"
-import CustomerTable from "../../Tables/CustomersTable/CustomersTable"
+import Copyright from "../Footer/Footer";
+import { BrowserRouter } from "react-router-dom";
+import Routing from "../../Routing/Routing";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 //func    name     return type
-function Layout():JSX.Element{ //JSX.Element = The component UI
+function Layout():JSX.Element{ 
+    //JSX.Element = The component UI
+    const client=new QueryClient(); //JSX.Element = The component UI
     return (
         <div className="Layout">
+             <QueryClientProvider client={client}>
             <BrowserRouter>
                 {/*<header>*/}
                 <Header/>
@@ -24,6 +24,7 @@ function Layout():JSX.Element{ //JSX.Element = The component UI
                 </main>
                    <Copyright/>
             </BrowserRouter>
+            </QueryClientProvider>
         </div>
     );
 }

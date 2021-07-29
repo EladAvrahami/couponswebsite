@@ -3,6 +3,8 @@ import MaterialTable from 'material-table';
 import './CompaniesTable.css';
 import axios from 'axios';
 import { Alert, AlertTitle } from '@material-ui/lab';
+import AxiosRequest from '../../../axios/AxiosRequest';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 
 // regex for email validation
@@ -17,7 +19,28 @@ const CompanyTable = () => {
   const [user, setUser] = useState([]);
   const [iserror, setIserror] = useState(false);
   const [errorMessages, setErrorMessages] = useState([]);
+   const[preferDarkMode, setPreferDarkMode] = useState([]);
+  const[Brightness4Icon, setBrightness4Icon] = useState([]);
+  const[Brightness7Icon, setBrightness7Icon]= useState([]);
+  // const[Checkbox, setCheckbox] = uesState([]);
+  // const[filter, setFilter] = uesState([]);
+ 
 
+  
+
+
+
+  // Line 163:17:  'preferDarkMode' is not defined     no-undef
+  // Line 163:35:  'Brightness4Icon' is not defined    react/jsx-no-undef
+  // Line 163:57:  'Brightness7Icon' is not defined    react/jsx-no-undef
+  // Line 166:17:  'setPreferDarkMode' is not defined  no-undef
+  // Line 166:36:  'preferDarkMode' is not defined     no-undef
+  // Line 172:18:  'Checkbox' is not defined           react/jsx-no-undef
+  // Line 173:28:  'filter' is not defined             no-undef
+  // Line 175:21:  'setFilter' is not defined          no-undef
+  // Line 175:32:  'filter' is not defined             no-undef
+  // Line 183:17:  'setFilter' is not defined          no-undef
+  // Line 183:28:  'filter' is not defined             no-undef
   let columns = [
     { title: 'ID', field: 'id' },
     { title: 'Name', field: 'name' },
@@ -30,7 +53,7 @@ const CompanyTable = () => {
   // ]  
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/coupons/getAllCompanies`)
+    AxiosRequest.get(`/coupons/getAllCompanies`)
       .then(res => {
         const users = res.data;
         setUser(users);
@@ -59,7 +82,7 @@ const CompanyTable = () => {
     
 
     if (errorList.length < 1) {
-      axios.put(`http://localhost:8080/coupons/updateCompany`, newData)
+      AxiosRequest.put(`/coupons/updateCompany`, newData)
         .then(response => {
           const updateUser = [...user];
           const index = oldData.tableData.companyId;
@@ -86,7 +109,7 @@ const CompanyTable = () => {
 
   //function for deleting a row
   const handleRowDelete = (oldData, resolve) => {
-    axios.delete(`http://localhost:8080/coupons/deleteCompany/${oldData.id}`)
+    AxiosRequest.delete(`/coupons/deleteCompany/${oldData.id}`)
       .then(response => {
         const dataDelete = [...user];
         const index = oldData.tableData.id;
@@ -123,7 +146,7 @@ const CompanyTable = () => {
     }
 
     if (errorList.length < 1) {
-      axios.post(`http://localhost:8080/coupons/addCompany`, newData)
+      AxiosRequest.post(`/coupons/addCompany`, newData)
         .then(response => {
           let newUserdata = [...user];
           newUserdata.push(newData);
@@ -153,6 +176,7 @@ const CompanyTable = () => {
         title="Company details:"
         columns={columns}
         data={user}
+        
         options={{
           headerStyle: { borderBottomColor: 'red', borderBottomWidth: '3px', fontFamily: 'verdana' },
           actionsColumnIndex: -1

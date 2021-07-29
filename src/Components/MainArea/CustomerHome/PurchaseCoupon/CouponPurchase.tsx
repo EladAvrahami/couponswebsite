@@ -6,6 +6,7 @@ import CouponData from "../../../Models/CouponData";
 import "./CouponPurchase.css";
 import CustomerData from "../../../Models/CustomerData";
 import UserModel from "../../../Models/UserModel";
+import AxiosRequest from "../../../../axios/AxiosRequest";
 
 function CouponPurchase(): JSX.Element {
     const {register, handleSubmit, errors} = useForm<CouponData>();
@@ -14,7 +15,7 @@ function CouponPurchase(): JSX.Element {
 
     async function send(coupon:CouponData){
         try{
-            const response = await axios.post<CouponData>("http://localhost:8080/coupons/purchaseCoupon/"+coupon.id);
+            const response = await AxiosRequest.post<CouponData>("coupons/purchaseCoupon/"+coupon.id);
             console.log(response.data);
             notify.success("The coupon was successfully purchased!");
 
