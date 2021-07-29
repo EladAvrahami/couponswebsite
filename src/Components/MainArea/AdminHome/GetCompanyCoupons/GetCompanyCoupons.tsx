@@ -142,28 +142,9 @@ function GetCompanyCoupons(): JSX.Element {
             notify.error("Error")
         }
     }
-
-
-
-    // const [coupons, setCoupons] = useState<CouponData[]>([]);
-    useEffect(() => {
-        fetchCoupons();
-    }, [])
-       const fetchCoupons = async () => {
-           try {
-            
-           } catch(e) {
-               console.log(e)
-           }
-       }
-       
-   
-       useEffect(() => {
-           fetchCoupons();
-       }, [])
    
        return (
-           <div className="CompanyAllCouponsPage row">
+           <div className="CompanyAllCouponsPage Box">
                {coupons.map (item => <SingleCoupon key= {item.id} myCoupon={item}/>)}
 			<h2>Get company coupons:</h2>
             <form onSubmit={handleSubmit(send)}>

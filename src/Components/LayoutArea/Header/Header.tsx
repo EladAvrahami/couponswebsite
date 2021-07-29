@@ -27,9 +27,11 @@ function Header():JSX.Element{
         history.push("/Login");
     }
 
+
     const handleLogout = () => {
      dispatch(unAuthorize());
      localStorage.clear();
+     history.push("/HomePage")
     }
 
     // const [clientType] = useState(store.getState().authState.user.clientType) //taken from Aside.tsx line 10
@@ -44,8 +46,13 @@ function Header():JSX.Element{
 
             <div className="InHeader d-flex justify-content-center   shadow-sm">
 
-                {role === '' && <div className="inHeader ml-auto d-flex mr-3" onClick={Login} >
-                  <p className="font-weight-bold text-primary mx-1">login</p>   
+                {/*תפריט אורח  */}
+                {role === '' && <div className="inHeader ml-auto d-flex mr-3"  >
+
+                  <p className="font-weight-bold text-primary mx-1" onClick={Login}>login</p> 
+                  <Link  to="/CouponStore">
+                    <button className="btn btn-primary btn-s mx-1 " >Check our coupons!</button>
+                    </Link>
                 </div>}
 
                 {role === 'admin' && <div className="inHeader ml-auto d-flex mr-3">
@@ -76,10 +83,12 @@ function Header():JSX.Element{
                 <Link  to="/SingleCompanyTable">
                   <button className="btn btn-primary btn-xs mx-5">Coupons management</button>
                 </Link>
+                <Link  to="/">
+                    <button className="btn btn-primary btn-s mx-1 " onClick={ handleLogout }>Logout</button>
+                    </Link>
                 <div>
                  {/* <button className="btn btn-primary btn-s mx-1 " onClick={Logout}>Logout</button> */}
                   {/* <NavLink exact to="/Logout">Logout</NavLink> */}
-                  {isLogged()}
                  </div>
                 </div>}
 
@@ -87,7 +96,14 @@ function Header():JSX.Element{
                     <NavLink className="navLink" exact to="/CouponPurchase" >Purchase coupons</NavLink>
                     <NavLink className="navLink" exact to="/GetCustomerDetails" >My details</NavLink>
                     <NavLink className="navLink" exact to="/SingleCustomerTable/" >My coupons</NavLink>
+                    <Link  to="/CouponStore">
+                    <button className="btn btn-primary btn-s mx-1 " >show coupons</button>
+                    </Link>
+                    <Link  to="/HomePage">
+                    <button className="btn btn-primary btn-s mx-1 " onClick={ handleLogout }>Logout</button>
+                    </Link>
                     <div>
+
                  {/* <button className="btn btn-primary btn-s mx-1 " onClick={Logout}>Logout</button> */}
                  </div>
                 </div>}

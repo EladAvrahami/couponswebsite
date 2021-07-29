@@ -71,8 +71,9 @@ function Routing(): JSX.Element {
                <Route path="/AdminPage" component={adminPage} exact/>
                <Route path="/Logout" component={Logout} exact/>
                <Route path="/CouponStore" component={CouponStore} exact/>
+               <Route path="/" component={HomePage} exact/>
                {/* <Route path ="/" component={HomePage} exact /> */}
-               <Redirect from="/" to="/CouponStore" exact />
+               <Redirect from="/" to="/" exact />
             {/* <Route component={Page404}/>  MUST BE LAST !!!!!!! */}
         </div>
     );
