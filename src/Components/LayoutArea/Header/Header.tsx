@@ -56,7 +56,7 @@ function Header():JSX.Element{
               <button className="btn btn-primary btn-xs ms-2">Company coupons</button>
             </Link>
             <Link  to="/CustomersTable">
-              <button className="btn btn-primary btn-xs ms-2 ">Manage customers</button>
+              <button className="btn btn-primary btn-xs ms-8 ">Manage customers</button>
             </Link>
             <Link  to="/CompaniesTable">
               <button className="btn btn-primary btn-xs ms-2 ">Manage companies</button>

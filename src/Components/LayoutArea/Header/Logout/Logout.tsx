@@ -25,6 +25,7 @@ function Logout(): JSX.Element {
         // store.dispatch(LogoutAction());
         notify.success("You have logged-out successfully.");
         // history.push('');
+        
     });
     return (<Header/>);
 }
