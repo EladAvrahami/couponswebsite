@@ -88,6 +88,9 @@ function Header():JSX.Element{
                 <Link  to="/">
                     <button className="btn btn-primary btn-s mx-1 " onClick={ handleLogout }>Logout</button>
                     </Link>
+                    <Link  to="/GetCompanyCouponsByMaxPrice">
+                    <button className="btn btn-primary btn-s mx-1 " >My coupons by max price</button>
+                    </Link>
                 <div>
                  {/* <button className="btn btn-primary btn-s mx-1 " onClick={Logout}>Logout</button> */}
                   {/* <NavLink exact to="/Logout">Logout</NavLink> */}
