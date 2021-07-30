@@ -31,7 +31,6 @@ function Header():JSX.Element{
     const handleLogout = () => {
      dispatch(unAuthorize());
      localStorage.clear();
-     history.push("/HomePage")
     }
 
     // const [clientType] = useState(store.getState().authState.user.clientType) //taken from Aside.tsx line 10
@@ -54,7 +53,7 @@ function Header():JSX.Element{
                     </Link>
                    
                   <Link  to="/CouponStore">
-                    <button className="button btn btn-primary btn-s mx-1 margin-right: 30px " >Check our coupons!</button>
+                    <button className="button btn btn-primary btn-s mx-1 margin-right: 30px " >Search & Buy!</button>
                     </Link>
                 </div>}
 
@@ -71,7 +70,7 @@ function Header():JSX.Element{
                     <Link  to="/CompaniesTable">
                     <button className="btn btn-primary btn-xs ms-2 ">Manage companies</button>
                     </Link>
-                    <Link  to="/CouponStore">
+                    <Link  to="/">
                     <button className="btn btn-primary btn-s mx-1 " onClick={ handleLogout }>Logout</button>
                     </Link>
                 <div>
@@ -97,9 +96,9 @@ function Header():JSX.Element{
 
                 {role === 'customer' && <div className="inHeader ml-auto d-flex mr-3">
                     
-                <Link  to="/CouponPurchase">
+                {/* <Link  to="/CouponPurchase">
                     <button className="btn btn-primary btn-s mx-1 " >Purchase coupons</button>
-                    </Link>
+                    </Link> */}
                     
                     <Link  to="/GetCustomerDetails">
                     <button className="btn btn-primary btn-s mx-1 " >My details</button>
@@ -108,9 +107,9 @@ function Header():JSX.Element{
                     <button className="btn btn-primary btn-s mx-1 " >My coupons</button>
                     </Link>
                     <Link  to="/CouponStore">
-                    <button className="btn btn-primary btn-s mx-1 " >show coupons</button>
+                    <button className="btn btn-primary btn-s mx-1 " >Search & Buy!</button>
                     </Link>
-                    <Link  to="/HomePage">
+                    <Link  to="/">
                     <button className="btn btn-primary btn-s mx-1 " onClick={ handleLogout }>Logout</button>
                     </Link>
                     <div>

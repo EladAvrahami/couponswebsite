@@ -13,7 +13,7 @@ function HomePage():JSX.Element{
             <h1>Welcome to our coupon website!</h1>
             <h2>Your best place for purchasing coupons!</h2>  
             <Link  to="/CouponStore">
-                    <button className="btn btn-primary btn-s mx-5 ">Check all coupons ! </button>
+                    <button className="btn btn-primary btn-s mx-5 ">Search & Buy! </button>
                     </Link>  
         </div>
     );
