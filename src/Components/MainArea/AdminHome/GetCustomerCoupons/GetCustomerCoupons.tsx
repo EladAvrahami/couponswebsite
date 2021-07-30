@@ -8,6 +8,8 @@ import CustomerData from "../../../Models/CustomerData";
 import CouponData from "../../../Models/CouponData";
 import notify from "../../../Services/Notify";
 import AxiosRequest from "../../../../axios/AxiosRequest";
+import { error } from "console";
+import { errorMonitor } from "events";
 
 
 function GetCustomerCoupons(): JSX.Element {

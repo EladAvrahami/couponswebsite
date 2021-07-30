@@ -14,14 +14,22 @@ function CouponPurchase(): JSX.Element {
     const history = useHistory();
 
     async function send(coupon:CouponData){
-        try{
-            const response = await AxiosRequest.post<CouponData>("coupons/purchaseCoupon/"+coupon.id);
-            console.log(response.data);
-            notify.success("The coupon was successfully purchased!");
+        await AxiosRequest.post<CouponData>("coupons/purchaseCoupon/"+coupon.id)
+            .then(response => {
+                console.log(response.data)
+            })
+            .catch(error => {
+                console.log(error.response.data.message)
+               notify.error(error.response.data.message) 
+            })
+        // try{
+        //     const response = await AxiosRequest.post<CouponData>("coupons/purchaseCoupon/"+coupon.id);
+        //     console.log(response.data);
+        //     notify.success("The coupon was successfully purchased!");
 
-        } catch {
-            notify.error("The coupon was NOT purchased.");
-        }
+        // } catch {
+        //     notify.error("The coupon was NOT purchased.");
+        // }
     }
     
     return (

@@ -96,13 +96,15 @@ function Header():JSX.Element{
 
                 {role === 'customer' && <div className="inHeader ml-auto d-flex mr-3">
                     
-                {/* <Link  to="/CouponPurchase">
+                 <Link  to="/CouponPurchase">
                     <button className="btn btn-primary btn-s mx-1 " >Purchase coupons</button>
-                    </Link> */}
-                    
+                    </Link> 
                     <Link  to="/GetCustomerDetails">
                     <button className="btn btn-primary btn-s mx-1 " >My details</button>
-                    </Link>.
+                    </Link>
+                    <Link  to="/GetPurchasedCouponsByMaxPrice">
+                    <button className="btn btn-primary btn-s mx-1 " >My coupons by max price</button>
+                    </Link>
                     <Link  to="/SingleCustomerTable/">
                     <button className="btn btn-primary btn-s mx-1 " >My coupons</button>
                     </Link>

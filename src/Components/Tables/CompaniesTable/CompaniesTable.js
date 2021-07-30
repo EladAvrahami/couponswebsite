@@ -157,6 +157,7 @@ const CompanyTable = () => {
         })
         .catch(error => {
           setErrorMessages(["You can't give a new company a name or an email that are already taken. Try again."])
+          console.log(error.response.data)
           setIserror(true)
           resolve()
         })

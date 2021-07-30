@@ -34,6 +34,7 @@ import HomePage from "../MainArea/HomePage/HomePage";
 import Logout from "../LayoutArea/Header/Logout/Logout";
 import CouponPurchase from "../MainArea/CustomerHome/PurchaseCoupon/CouponPurchase";
 import CouponStore from "../../CouponsCarts/CouponStore/couponStore";
+import GetPurchasedCouponsByMaxPrice from "../MainArea/CustomerHome/GetPurchasedCouponsByMaxPrice/GetPurchasedCouponsByMaxPrice";
 
 
 function Routing(): JSX.Element {
@@ -71,6 +72,7 @@ function Routing(): JSX.Element {
                <Route path="/AdminPage" component={adminPage} exact/>
                <Route path="/Logout" component={Logout} exact/>
                <Route path="/CouponStore" component={CouponStore} exact/>
+               <Route path="/GetPurchasedCouponsByMaxPrice" component = {GetPurchasedCouponsByMaxPrice} exact/>
                <Route path="/" component={HomePage} exact/>
                {/* <Route path ="/" component={HomePage} exact /> */}
                {/* <Redirect from="/" to="/" exact /> */}

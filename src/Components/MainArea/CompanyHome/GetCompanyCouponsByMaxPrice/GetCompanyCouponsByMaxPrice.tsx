@@ -1,48 +1,50 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import AxiosRequest from "../../../../axios/AxiosRequest";
 import SingleCoupon from "../../../Coupons/SingleCoupon";
 import CompanyData from "../../../Models/CompanyData";
 import CouponData from "../../../Models/CouponData";
 import notify from "../../../Services/Notify";
-import AxiosRequest from "../../../../axios/AxiosRequest";
+import "./GetCompanyCouponsByMaxPrice.css";
 
 function GetCompanyCouponsByMaxPrice(): JSX.Element {
-    const [coupons, setCoupons] = useState<CouponData[]>([]);
-
-    const {register, handleSubmit, errors} = useForm<CompanyData>();
+    const {register, handleSubmit, errors} = useForm<CouponData>();
+    //for sending the browser to specific location 
     const history = useHistory();
-
-    async function send(){
+    const [coupons, setCoupons] = useState<CouponData[]>([]);
+    async function send(coupon:CouponData){
         try{
-            // const { data : coupons } : { data : CouponData[] } = await axios.get(
-            const { data : coupons } : { data : CouponData[] } = await AxiosRequest.get(
-            // `http://localhost:8080/coupons/getCouponsByMaxPrice/`,
-            `/coupons/getCouponsByMaxPrice/` //You need to change getCouponsByMaxPrice controller in spring.
-            );
-            setCoupons(coupons);
-            notify.success("");
+            //lecturer is in json mode, ready to send.....      
+            const response = await AxiosRequest.get("/coupons/getCouponsByMaxPrice/"+coupon.price);
+            const myResponse = response.data;
+            setCoupons(myResponse);
+
+            notify.success("There is a company with that id.");
         } catch {
-            notify.error("Error")
+            notify.error("There is NO company with that id.")
         }
     }
 
-   return (
-       <div className="GetCompanyCouponsByMaxPrice row">
-           {coupons.map (item => <SingleCoupon key= {item.id} myCoupon={item}/>)}
-        <h2>Coupons by max price:</h2>
-        <form onSubmit={handleSubmit(send)}>
+    return (
+        <div className="GetCompanyCouponsByMaxPrice Box">
+        {coupons.map (item => <SingleCoupon key= {item.id} myCoupon={item}/>)}
+			<h2>Coupons by max price</h2>
+            <form onSubmit={handleSubmit(send)}>
             <input type="number" name="price" placeholder="Maximum price" ref={register({
-                required: {value:true , message:"Missing price."},
-            })}/>
-            <br/><br/>
-            <button>Get</button>
-        </form>
-    </div>
-   );
+                    required: {value:true , message:"Missing value"},
+                })}/>
+                <span><br/>{errors.price?.message}</span>
+                <br/><br/>
+                
+                <button>Get</button>
+            </form>
+        </div>
+    );
 }
-   
+
+
 export default GetCompanyCouponsByMaxPrice;
 
 // import axios from "axios";

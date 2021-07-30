@@ -1,45 +1,52 @@
- import axios from "axios";
-// import { useForm } from "react-hook-form";
-// import { useHistory } from "react-router-dom";
-// import CouponData from "../../../Models/CouponData";
-// import CustomerData from "../../../Models/CustomerData";
-// import notify from "../../../Services/Notify";
-// import "./GetPurchasedCouponsByMaxPrice.css";
+import axios from "axios";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
+import AxiosRequest from "../../../../axios/AxiosRequest";
+import SingleCoupon from "../../../Coupons/SingleCoupon";
+import CompanyData from "../../../Models/CompanyData";
+import CouponData from "../../../Models/CouponData";
+import CustomerData from "../../../Models/CustomerData";
+import notify from "../../../Services/Notify";
+import "./GetPurchasedCouponsByMaxPrice.css";
 
-// function GetPurchasedCouponsByMaxPrice(): JSX.Element {
-//     const {register, handleSubmit, errors} = useForm<CustomerData>();
-//     //for sending the browser to specific location 
-//     const history = useHistory();
+function GetPurchasedCouponsByMaxPrice(): JSX.Element {
+    const {register, handleSubmit, errors} = useForm<CouponData>();
+    //for sending the browser to specific location 
+    const history = useHistory();
+    const [coupons, setCoupons] = useState<CouponData[]>([]);
+    async function send(coupon:CouponData){
+        try{
+            //lecturer is in json mode, ready to send.....      
+            const response = await AxiosRequest.get("/coupons/getCouponsPerCustomerByMaxPrice/"+coupon.price);
+            const myResponse = response.data;
+            setCoupons(myResponse);
 
-//     async function send(){
-//         try{
-//             //lecturer is in json mode, ready to send.....      
-//             const response = await axios.get<CouponData>("http://localhost:8080/coupons/getCouponsPerCustomerByMaxPrice/"+coupon.price);
-//             console.log(response);
-//             notify.success("There is a customer with that id.");
-//         } catch {
-//             notify.error("There is NO customer with that id.")
-//         }
-//     }
+            notify.success("There is a customer with that id.");
+        } catch {
+            notify.error("There is NO customer with that id.")
+        }
+    }
 
-//     return (
-//         <div className="GetPurchasedCouponsByMaxPrice Box">
-// 			<h2>Get All Coupons Per Customer By Maximum Price</h2>
-//             <form onSubmit={handleSubmit(send)}>
-//             <input type="number" name="maxPrice" placeholder="Customer's id" ref={register({
-//                     required: {value:true , message:"Missing id"},
-//                 })}/>
-//                 <span><br/>{errors.maxPrice?.message}</span>
-//                 <br/><br/>
+    return (
+        <div className="GetPurchasedCouponsByMaxPrice Box">
+        {coupons.map (item => <SingleCoupon key= {item.id} myCoupon={item}/>)}
+			<h2>Coupons by max price</h2>
+            <form onSubmit={handleSubmit(send)}>
+            <input type="number" name="price" placeholder="Maximum price" ref={register({
+                    required: {value:true , message:"Missing value"},
+                })}/>
+                <span><br/>{errors.price?.message}</span>
+                <br/><br/>
                 
-//                 <button>Get</button>
-//             </form>
-//         </div>
-//     );
-// }
+                <button>Get</button>
+            </form>
+        </div>
+    );
+}
 
 
-// export default GetPurchasedCouponsByMaxPrice;
+export default GetPurchasedCouponsByMaxPrice;
 
 // import { Component } from "react";
 // import "./GetCustomerDetails.css";
